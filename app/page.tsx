@@ -23,12 +23,23 @@ export default function HomePage() {
             Manage data subject access requests, configure data sources, and
             maintain GDPR compliance through a unified interface.
           </p>
-          <Link
-            href="/dashboard"
-            className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-medium text-white hover:bg-blue-700"
-          >
-            View Sample Dashboard
-          </Link>
+          <div className="mb-6 flex flex-col items-center gap-4">
+            <Link
+              href="/dashboard"
+              className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-lg font-medium text-white hover:bg-blue-700"
+            >
+              View Sample Dashboard
+            </Link>
+            <a
+              href="https://scout.ciris.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Chat with scout.ciris.ai about the open source CIRIS Agent
+              framework
+            </a>
+          </div>
         </div>
       </div>
     </div>
