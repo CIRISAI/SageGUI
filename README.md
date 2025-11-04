@@ -39,16 +39,46 @@ SageGUI (Next.js) → TypeScript SDK → CIRISAgent API → Data Sources
 git clone https://github.com/CIRISAI/SageGUI.git
 cd SageGUI
 
+# Install dependencies
 pnpm install
 
+# Copy environment configuration
 cp .env.example .env.local
-# Configure your environment variables
+# Edit .env.local with your CIRISAgent API URL and credentials
 
-pnpm prisma migrate deploy
+# Start development server
 pnpm dev
 ```
 
 Visit http://localhost:3000
+
+### Project Structure
+
+```
+SageGUI/
+├── app/                        # Next.js 14 App Router
+│   ├── (dashboard)/           # Protected dashboard routes
+│   │   ├── dashboard/         # Main dashboard
+│   │   ├── data-sources/      # Connector management
+│   │   ├── dsar/              # DSAR requests
+│   │   ├── privacy-schemas/   # Privacy schema editor
+│   │   ├── reports/           # Compliance reports
+│   │   └── settings/          # System settings
+│   ├── globals.css            # Global styles
+│   ├── layout.tsx             # Root layout
+│   ├── page.tsx               # Landing page
+│   └── providers.tsx          # React Query provider
+├── components/
+│   └── layouts/               # Layout components (Sidebar, Header)
+├── lib/
+│   ├── ciris-sdk/            # TypeScript SDK
+│   │   ├── client.ts         # Main CIRIS client
+│   │   ├── transport.ts      # HTTP transport layer
+│   │   ├── types/            # Type definitions
+│   │   └── resources/        # API resources
+│   └── utils.ts              # Utility functions
+└── ...config files
+```
 
 ### Environment Variables
 
@@ -78,18 +108,29 @@ tables:
 
 ## Development Status
 
-**Version**: 1.0.0-alpha (November 2025)
+**Version**: 0.0.1 (November 2025)
 
-### Implemented
-- Core DSAR workflow
-- SQL connector support
-- Privacy schema management
-- Basic reporting
+### Current Release (v0.0.1)
+This is the initial foundation release with:
+- ✅ Project structure and configuration
+- ✅ TypeScript SDK foundation (Transport, Resources, Types)
+- ✅ Base page layouts and navigation
+- ✅ Dashboard, Data Sources, DSAR, Privacy Schemas, Reports, Settings pages
+- ✅ UI components structure (ready for shadcn/ui)
 
-### Planned
+### Next Steps (v0.1.0)
+- Implement React Query hooks for data fetching
+- Add shadcn/ui components
+- Connect pages to CIRISAgent API
+- Add form validation with Zod
+- Implement real-time DSAR progress tracking
+
+### Planned (v1.0.0)
 - REST API connectors
-- Enhanced reporting
-- Bulk operations
+- Enhanced reporting with charts
+- Bulk DSAR operations
+- NextAuth authentication
+- Privacy schema validation
 - Internationalization
 
 ## License
