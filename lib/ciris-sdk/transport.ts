@@ -77,6 +77,21 @@ export class Transport {
         );
       }
 
+      // Handle 204 No Content and empty responses
+      if (
+        response.status === 204 ||
+        response.headers.get('content-length') === '0'
+      ) {
+        return {} as T;
+      }
+
+      // Check if response has content before parsing
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        // If not JSON, return empty object for success responses
+        return {} as T;
+      }
+
       return response.json();
     } catch (error: any) {
       if (error instanceof APIError) throw error;
