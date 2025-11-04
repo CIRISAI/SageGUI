@@ -22,8 +22,8 @@ export default function HomePage() {
               Democratizing Privacy Compliance
             </p>
             <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-gray-600">
-              Managing GDPR compliance shouldn't require an army of lawyers and
-              engineers. Sage makes data subject rights accessible to
+              Managing GDPR compliance shouldn&apos;t require an army of lawyers
+              and engineers. Sage makes data subject rights accessible to
               organizations of all sizes through intelligent automation and
               ethical AI.
             </p>
