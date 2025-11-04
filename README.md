@@ -52,6 +52,22 @@ pnpm dev
 
 Visit http://localhost:3000
 
+## Deployment
+
+SageGUI is configured for deployment to Cloudflare Pages at **sage.ciris.ai**.
+
+### Quick Deploy
+
+```bash
+# Install dependencies
+npm install
+
+# Build and deploy to Cloudflare Pages
+npm run deploy
+```
+
+For detailed deployment instructions, environment configuration, and troubleshooting, see [DEPLOYMENT.md](./DEPLOYMENT.md).
+
 ### Project Structure
 
 ```
@@ -83,11 +99,15 @@ SageGUI/
 ### Environment Variables
 
 ```env
-NEXT_PUBLIC_API_URL=https://your-ciris-instance.com
+# Production (sage.ciris.ai)
+NEXT_PUBLIC_API_URL=https://scoutapilb.ciris.ai
 CIRIS_API_KEY=your-api-key
-DATABASE_URL=postgresql://user:pass@localhost:5432/sage
-NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_URL=https://sage.ciris.ai
 NEXTAUTH_SECRET=generate-with-openssl-rand-base64-32
+
+# Local Development
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXTAUTH_URL=http://localhost:3000
 ```
 
 ## Privacy Schema Format

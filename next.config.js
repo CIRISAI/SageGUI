@@ -6,8 +6,10 @@ const nextConfig = {
       bodySizeLimit: '2mb',
     },
   },
-  // Standalone output for Docker
-  output: 'standalone',
+  // Cloudflare Pages configuration
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig

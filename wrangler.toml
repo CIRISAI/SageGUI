@@ -1,0 +1,26 @@
+name = "sagegui"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = ".vercel/output/static"
+
+[env.production]
+name = "sagegui"
+routes = [
+  { pattern = "sage.ciris.ai", custom_domain = true }
+]
+
+[env.production.vars]
+NEXT_PUBLIC_API_URL = "https://scoutapilb.ciris.ai"
+NEXTAUTH_URL = "https://sage.ciris.ai"
+
+[env.preview]
+name = "sagegui-preview"
+
+[env.preview.vars]
+NEXT_PUBLIC_API_URL = "https://scoutapilb.ciris.ai"
+
+# Build configuration
+[build]
+command = "npm run build"
+
+# Node.js compatibility
+compatibility_flags = ["nodejs_compat"]
