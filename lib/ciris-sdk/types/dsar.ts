@@ -17,7 +17,7 @@ export interface MultiSourceDSARRequest {
   email: string;
   user_identifier: string;
   export_format?: ExportFormat;
-  corrections?: Record<string, any>;
+  corrections?: Record<string, string | number | boolean>;
   details?: string;
   urgent?: boolean;
 }
@@ -61,7 +61,7 @@ export interface PartialResultsResponse {
   results: {
     source_id: string;
     source_name: string;
-    data: any;
+    data: unknown;
     retrieved_at: string;
   }[];
 }

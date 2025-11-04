@@ -12,8 +12,8 @@ export interface TransportOptions {
 export interface RequestConfig {
   method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
   path: string;
-  params?: Record<string, any>;
-  data?: any;
+  params?: Record<string, string | number | boolean>;
+  data?: unknown;
   headers?: Record<string, string>;
 }
 
@@ -21,7 +21,7 @@ export class APIError extends Error {
   constructor(
     message: string,
     public status: number,
-    public data?: any
+    public data?: unknown
   ) {
     super(message);
     this.name = 'APIError';
@@ -93,9 +93,9 @@ export class Transport {
       }
 
       return response.json();
-    } catch (error: any) {
+    } catch (error: unknown) {
       if (error instanceof APIError) throw error;
-      if (error.name === 'AbortError') {
+      if (error instanceof Error && error.name === 'AbortError') {
         throw new APIError('Request timeout', 408);
       }
       throw new APIError('Network error', 0, error);
@@ -104,19 +104,22 @@ export class Transport {
     }
   }
 
-  async get<T>(path: string, params?: Record<string, any>): Promise<T> {
+  async get<T>(
+    path: string,
+    params?: Record<string, string | number | boolean>
+  ): Promise<T> {
     return this.request<T>({ method: 'GET', path, params });
   }
 
-  async post<T>(path: string, data?: any): Promise<T> {
+  async post<T>(path: string, data?: unknown): Promise<T> {
     return this.request<T>({ method: 'POST', path, data });
   }
 
-  async put<T>(path: string, data?: any): Promise<T> {
+  async put<T>(path: string, data?: unknown): Promise<T> {
     return this.request<T>({ method: 'PUT', path, data });
   }
 
-  async patch<T>(path: string, data?: any): Promise<T> {
+  async patch<T>(path: string, data?: unknown): Promise<T> {
     return this.request<T>({ method: 'PATCH', path, data });
   }
 

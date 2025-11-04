@@ -2,7 +2,7 @@
  * Common type definitions used across the SDK
  */
 
-export interface APIResponse<T = any> {
+export interface APIResponse<T = unknown> {
   success: boolean;
   data?: T;
   error?: string;
@@ -21,5 +21,5 @@ export interface ErrorResponse {
   error: string;
   message: string;
   status_code: number;
-  details?: any;
+  details?: Record<string, unknown>;
 }
