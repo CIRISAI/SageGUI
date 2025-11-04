@@ -39,6 +39,13 @@ export default function HomePage() {
               Chat with scout.ciris.ai about the open source CIRIS Agent
               framework
             </a>
+            <a
+              href="mailto:sales@ciris.ai"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              Contact CIRIS L3C about ethical AI consulting or piloting our GDPR
+              solution at sales@ciris.ai
+            </a>
           </div>
         </div>
       </div>
