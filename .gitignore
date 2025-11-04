@@ -29,6 +29,12 @@ yarn-error.log*
 # Vercel
 .vercel
 
+# Cloudflare
+.dev.vars
+.wrangler
+wrangler.toml.local
+.mf
+
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
