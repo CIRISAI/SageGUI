@@ -102,6 +102,14 @@ export default function HomePage() {
           {/* Links Section */}
           <div className="flex flex-col items-center gap-4 text-center">
             <a
+              href="https://ciris.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-blue-600 hover:text-blue-800 hover:underline"
+            >
+              🌐 Visit CIRIS.ai
+            </a>
+            <a
               href="https://github.com/CIRISAI/CIRISAgent"
               target="_blank"
               rel="noopener noreferrer"

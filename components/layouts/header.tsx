@@ -1,6 +1,6 @@
 'use client';
 
-import { Bell, User, Github } from 'lucide-react';
+import { Bell, User, Github, Globe } from 'lucide-react';
 import Link from 'next/link';
 
 export function Header() {
@@ -21,6 +21,15 @@ export function Header() {
         >
           <Github className="h-5 w-5 text-gray-600" />
           <span className="text-sm font-medium text-gray-700">GitHub</span>
+        </Link>
+        <Link
+          href="https://ciris.ai"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 rounded-lg p-2 transition-colors hover:bg-gray-100"
+        >
+          <Globe className="h-5 w-5 text-gray-600" />
+          <span className="text-sm font-medium text-gray-700">CIRIS.ai</span>
         </Link>
         <button className="rounded-lg p-2 hover:bg-gray-100">
           <Bell className="h-5 w-5 text-gray-600" />
